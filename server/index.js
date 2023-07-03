@@ -1,5 +1,13 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const app = express();
+const mongoose = require('mongoose');
+
+dotenv.config({ path: './config.env' });
+
+require('./db/conn');
+const PORT = process.env.PORT || 3000;
+
 
 
 app.get('/', (req, res) => {
@@ -19,4 +27,4 @@ app.get('/summrize', (req, res) => {
 });
 
 
-app.listen(3000);
+app.listen(PORT);
